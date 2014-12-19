@@ -1,3 +1,5 @@
+import sbtrelease.Version
+
 name := "sbt-release-playground"
 organization  := "com.vlach"
 scalaVersion  := "2.11.4"
@@ -15,3 +17,7 @@ artifact in (Compile, assembly) := {
 addArtifact(artifact in (Compile, assembly), assembly)
 
 releaseSettings
+
+ReleaseKeys.versionBump := Version.Bump.Next
+
+ReleaseKeys.nextVersion := { ver => Version(ver).map(_.bumpBugfix.string).getOrElse(sbtrelease.versionFormatError) }
