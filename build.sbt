@@ -18,6 +18,4 @@ addArtifact(artifact in (Compile, assembly), assembly)
 
 releaseSettings
 
-ReleaseKeys.versionBump := Version.Bump.Next
-
 ReleaseKeys.nextVersion := { ver => Version(ver).map(_.bumpBugfix.string).getOrElse(sbtrelease.versionFormatError) }
