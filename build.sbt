@@ -16,6 +16,15 @@ artifact in (Compile, assembly) := {
 
 addArtifact(artifact in (Compile, assembly), assembly)
 
+// disable publishing the main jar produced by `package`
+publishArtifact in (Compile, packageBin) := false
+
+// disable publishing the main API jar
+publishArtifact in (Compile, packageDoc) := false
+
+// disable publishing the main sources jar
+publishArtifact in (Compile, packageSrc) := false
+
 releaseSettings
 
 ReleaseKeys.nextVersion := { ver => Version(ver).map(_.bumpBugfix.string).getOrElse(sbtrelease.versionFormatError) }
