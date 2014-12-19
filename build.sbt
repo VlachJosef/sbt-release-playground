@@ -28,3 +28,5 @@ publishArtifact in (Compile, packageSrc) := false
 releaseSettings
 
 ReleaseKeys.nextVersion := { ver => Version(ver).map(_.bumpBugfix.string).getOrElse(sbtrelease.versionFormatError) }
+
+ReleaseKeys.commitMessage <<= (version in ThisBuild) map (v => "v%s" format v)
