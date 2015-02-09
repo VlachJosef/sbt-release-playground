@@ -8,7 +8,7 @@ libraryDependencies ++= Seq(
   "org.scalatest" % "scalatest_2.11" % "2.2.2" % "test"
 )
 
-credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
+//credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
 
 publishTo := Some("Artifactory Realm" at "http://artifactory.funkypandagame.com:8081/artifactory/funkypanda")
 publishMavenStyle := true
